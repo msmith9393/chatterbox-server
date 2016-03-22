@@ -1,7 +1,6 @@
+var fs = require('fs');
 var http = require('http');
 var handleRequest = require('./request-handler');
-// var fs = require('fs');
-// var message = fs.readFileSync('./client/2016-02-chatterbox-client-dir/client/index.html');
 
 var port = 3000; // Other options are: 8080 and 1337
 
