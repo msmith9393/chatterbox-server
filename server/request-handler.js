@@ -47,8 +47,7 @@ var requestHandler = function(request, response) {
         url: request.url,
         results: body
       };
-      
-      console.log(body);
+
       response.writeHead(200, headers);      
       response.end(JSON.stringify(sendObj));
     }
@@ -61,4 +60,6 @@ var requestHandler = function(request, response) {
 };
 
 
-module.exports = requestHandler;
+
+
+module.exports.requestHandler = requestHandler;
