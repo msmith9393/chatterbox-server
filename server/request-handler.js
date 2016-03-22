@@ -25,8 +25,7 @@ var requestHandler = function(request, response) {
   console.log('Serving request type ' + request.method + ' for url ' + request.url);
 
 
-
-  if (method === 'POST') {
+  if (method === 'GET') {
 
     request.on('error', function(err) {
       console.error(err);
@@ -37,6 +36,7 @@ var requestHandler = function(request, response) {
     });
 
     request.on('end', function() {
+
       body = Buffer.concat(body).toString();
 
       response.on('error', function(err) {
@@ -52,16 +52,18 @@ var requestHandler = function(request, response) {
         body: body
       };
 
-      response.write(JSON.stringify(responseBody));
+      response.post(JSON.stringify(responseBody));
       response.end();
-
+      console.log('POST METHOD - responseBody is ', responseBody);
     });
 
-  } else if (method === 'GET') {
+  
+  // else if (method === 'POST' && url === 'http://127.0.0.1:3000/classes/messages') {
       
-    response.end(JSON.stringify(body));
+  //   response.end(JSON.stringify(body));
 
 
+  // } 
   } else {
     response.writeHead(404, headers);
   }
