@@ -1,3 +1,7 @@
+// var fs = require('fs');
+// var webpage = fs.readFileSync('../client/2016-02-chatterbox-client-dir/client/index.html');
+// console.log(webpage.toString());
+
 var body = [];
 
 var requestHandler = function(request, response) {
@@ -31,15 +35,16 @@ var requestHandler = function(request, response) {
 
     } else {
       
-      response.writeHead(404, {'Content-Type': 'text/html'});
+      response.writeHead(404, headers);
       response.end('Error in POST');
     }
 
   } else if (request.method === 'GET') {
     
     if (request.url !== '/classes/messages') {
-      response.writeHead(404, {'Content-Type': 'type/html'});
+      response.writeHead(404, headers);
       response.end('Non-existent File');
+      
     } else {
       var sendObj = {
         headers: headers,
@@ -53,7 +58,7 @@ var requestHandler = function(request, response) {
     }
 
   } else {
-    response.writeHead(404, {'Content-Type': 'type/html'});
+    response.writeHead(404, headers);
     response.end('Non-existent File');
   }
 

@@ -1,4 +1,3 @@
-var fs = require('fs');
 var http = require('http');
 var handler = require('./request-handler');
 
@@ -12,10 +11,3 @@ server.listen(port, ip);
 
 // To start this server, run:  node basic-server.js
 // To connect to the server, load http://127.0.0.1:3000
-
-
-server.on('request', function(request, response) {
-  // the same kind of magic happens here!
-  console.log('REQUEST ON SERVER', request.url);
-
-});
